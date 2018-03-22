@@ -1,4 +1,5 @@
 import { Server, ServerOptions, createServer } from 'restify';
+import * as corsMiddleware from 'restify-cors-middleware';
 
 class HubEditor {
     private _instance: Server;
@@ -14,6 +15,18 @@ class HubEditor {
         return this._instance;
     }
 
+    configure() {
+        // Todo : Update values for allowHeaders and exposeHeaders
+        const corsOptions: corsMiddleware.Options = {
+            origins: ['*'],
+            allowHeaders: ['*'],
+            exposeHeaders: ['*']
+        }
+        const cors = corsMiddleware(corsOptions);
+        this._instance.use(cors.preflight);
+        this._instance.use(cors.actual);
+        return this;
+    }
 
     start() {
         this._instance.listen(this._port, this.success.bind(this));
