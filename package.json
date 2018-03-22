@@ -10,9 +10,16 @@
     "typescript": "^2.7.2"
   },
   "devDependencies": {
-    "@types/restify": "^5.0.7"
+    "@types/restify": "^5.0.7",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.2",
+    "yarn": "^1.5.1"
   },
-  "scripts":{
-    "tsc:init": "tsc --init"
+  "scripts": {
+    "tsc:init": "tsc --init",
+    "tsc:watch": "tsc --watch",
+    "tsc:compile": "tsc",
+    "deploy": "nodemon ./dist",
+    "dev": "yarn run tsc:compile && concurrently -k \"yarn run tsc:watch\" \"yarn run deploy\""
   }
 }
