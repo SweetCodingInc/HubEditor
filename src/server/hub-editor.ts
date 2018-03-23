@@ -1,10 +1,11 @@
 import { Server, ServerOptions, createServer } from 'restify';
 import * as corsMiddleware from 'restify-cors-middleware';
+import { repoRoutes } from './routes/repo-routes';
 
 class HubEditor {
     private _instance: Server;
     private _serverOptions: ServerOptions = {};
-    private _port: number = 3000;
+    private _port = 3000;
 
     constructor() {
         this._instance = createServer(this._serverOptions);
@@ -21,10 +22,11 @@ class HubEditor {
             origins: ['*'],
             allowHeaders: ['*'],
             exposeHeaders: ['*']
-        }
+        };
         const cors = corsMiddleware(corsOptions);
         this._instance.use(cors.preflight);
         this._instance.use(cors.actual);
+        repoRoutes.applyRoutes(this._instance);
         return this;
     }
 
