@@ -1,6 +1,6 @@
 # HubEditor
 
-HubEditor has the goal to create an editor that will allow you to link your github profile with the editor and have a showcase of your repositories. From there you can select a repository and open files in order to edit them. They idea is that all changes are automatically applied back to the repository after saving the files.
+HubEditor has the goal to create an editor that will allow you to link your github profile with the editor and have a showcase of your repositories. From there you can select a repository and open files in order to edit them. The idea is that all changes are automatically applied back to the repository after saving the files.
 
 ## Contributing
 
