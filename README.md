@@ -13,6 +13,21 @@ Please read [CONTRIBUTING.md](https://github.com/SweetCodingInc/HubEditor/blob/m
 * **[mbosnjak01](https://github.com/mbosnjak01)** - *That croation guy*
 * **[Codevotee](https://github.com/Codevotee)** - *That british guy*
 
+## Get started
+
+To get started, fork this repo and run following commands.
+Check prerequisites in our [CONTRIBUTING](https://github.com/SweetCodingInc/HubEditor/blob/master/CONTRIBUTING.md#prerequisites) guidelines.
+
+```shell
+git clone https://github.com/<YOUR GITHUB USERNAME>/HubEditor.git
+
+cd HubEditor
+
+yarn start
+```
+
+In case of any trouble, check the [Troubleshooting](https://github.com/SweetCodingInc/HubEditor/blob/master/CONTRIBUTING.md#troubleshooting) section in your [CONTRIBUTING](https://github.com/SweetCodingInc/HubEditor/blob/master/CONTRIBUTING.md) guidelines.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/SweetCodingInc/HubEditor/blob/master/LICENSE.md) file for details
