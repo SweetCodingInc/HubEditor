@@ -4,7 +4,7 @@ HubEditor has the goal to create an editor that will allow you to link your gith
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/SweetCodingInc/README.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/SweetCodingInc/HubEditor/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
@@ -15,4 +15,4 @@ Please read [CONTRIBUTING.md](https://gist.github.com/SweetCodingInc/README.md) 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/SweetCodingInc/HubEditor/blob/master/LICENSE.md) file for details
