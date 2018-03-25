@@ -38,11 +38,18 @@ Feel free to visit our Gitter room [HubEditor](https://gitter.im/HubEditor/Lobby
 
 | Prerequisite                                | Version |
 | ------------------------------------------- | ------- |
-| [Node.js](http://nodejs.org)                | `~ ^8.9.3`  |
+| [Node.js](http://nodejs.org)                | `~ ^6.9.1`  |
 | npm (comes with Node)                       | `~ ^5`  |
 | Typescript                                  | `~ ^2.72`  |
 
 If your versions are lower than the prerequisite versions, you should update.
+
+We use `yarn` for node package management. Please run following commands to ensure everything is set up correctly
+
+```shell
+npm install -g yarn
+npm install -g @angular/cli
+```
 
 ### Forking the Project
 
@@ -80,6 +87,12 @@ $ git remote add upstream https://github.com/SweetCodingInc/HubEditor.git
 ```
 
 Congratulations, you now have a local copy of the HubEditor repo!
+
+##### To start the project
+
+```shell
+yarn start
+```
 
 #### Maintaining Your Fork
 
@@ -147,13 +160,8 @@ $ git push origin [name_of_your_new_branch]
 Once you have HubEditor cloned, before you start the application, you first need to install all of the dependencies:
 
 ```bash
-# Install NPM dependencies
-npm install
-```
-
-```bash
-# Start the dev setup and watchers
-npm run dev
+# Install NPM dependencies and Start the dev setup and watchers
+yarn start
 ```
 
 Now navigate to your browser and open <http://localhost:3000>. If the app loads, congratulations – you're all set.
@@ -308,3 +316,15 @@ commit. When you push it to your fork you will need to do a force push to
 overwrite your old commit: `git push --force`
 
 Be sure to post in the PR conversation that you have made the requested changes.
+
+
+#### Troubleshooting
+If you run into any issues while running `yarn start` command. Please follow these steps
+
+- First close any running instances of HubEditor
+- Run `yarn run server`
+- Run `yarn run client`
+- Once these two are successful, close each instance
+- Run `yarn start` - this should get you started correctly.
+
+In case you still face any issues, please don't hesitate to contact us in our [gitter room](https://gitter.im/HubEditor/Lobby) or you may also open an issue on github
