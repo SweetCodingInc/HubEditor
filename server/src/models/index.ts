@@ -5,3 +5,4 @@ export { ILinks } from './repo-links.model';
 export { IRepo } from './repo.model';
 export { IAuthor, IChildCommit, ICommit, IParent, ITree, IVerification } from './commit.model';
 export { ITreeNode } from './tree-node.model';
+export { IFileContent } from './file-content.model';

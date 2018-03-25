@@ -1,35 +1,23 @@
 {
-  "name": "HubEditor",
+  "name": "test-out",
   "version": "1.0.0",
-  "main": "dist/index",
-  "repository": "https://github.com/SweetCodingInc/HubEditor.git",
-  "author": "Sweet Coding <sweetcodinginc@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "restify": "^7.0.0",
-    "restify-cors-middleware": "^1.1.0",
-    "restify-router": "^0.5.0",
-    "rxjs": "^5.5.7",
-    "typescript": "^2.7.2"
-  },
-  "devDependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/restify": "^5.0.7",
-    "@types/restify-cors-middleware": "^1.0.1",
-    "codelyzer": "^4.2.1",
-    "concurrently": "^3.5.1",
-    "nodemon": "^1.17.2",
-    "ts-node": "^5.0.1",
-    "tslint": "^5.9.1",
-    "yarn": "^1.5.1"
-  },
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "tsc:init": "tsc --init",
-    "tsc:watch": "tsc --watch",
-    "tsc:compile": "tsc",
-    "deploy": "nodemon ./dist",
-    "lint": "tslint",
-    "dev": "yarn run tsc:compile && concurrently -k \"yarn run tsc:watch\" \"yarn run deploy\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:install": "yarn --cwd ./server install",
+    "server:start": "yarn --cwd ./server run dev",
+    "server": "yarn run server:install && yarn run server:start",
+    "client:install": "yarn --cwd ./client install",
+    "client:start": "yarn --cwd ./client start --open",
+    "client": "yarn run client:install && yarn run client:start",
+    "start": "yarn install && concurrently -k \"yarn run server\" \"yarn run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "yarn": "^1.5.1"
   }
 }

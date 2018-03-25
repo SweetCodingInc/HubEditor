@@ -1,0 +1,6 @@
+<div *ngIf="(repoState$ | async)['active']"> Loading ...</div>
+<div *ngIf="(!repoState$ | async)['active']">
+  <ul>
+    <li *ngFor="let node of (repoState$.tree | async)">{{node.name}}</li>
+  </ul>
+</div>
