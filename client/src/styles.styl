@@ -1,20 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-html, body{
-    height:100%;
-    width:100%;
-    flex:1;
-    display:flex;
-}
 
-.f{
-    display:flex;
-    flex:1;
-}
+@import 'styl/variables'
+@import 'styl/functions'
+@import 'styl/generic'
+@import 'styl/helpers'
+@import 'styl/normalize'
 
-.c{
-    flex-direction:column;
-}
+html,
+body
+  height 100%
+  width 100%
+  flex 1
+  display flex
 
-.r{
-    flex-direction:row;
-}
+.f
+  display flex
+  flex 1
+
+.c
+  flex-direction column
+
+.r
+  flex-direction row
