@@ -26,6 +26,8 @@ cd HubEditor
 yarn start
 ```
 
+> **Note:** If you run into the `cannot find rxjs/operators module` issue try to run `npm install` in the `Hubeditor/client` folder.
+
 In case of any trouble, check the [Troubleshooting](https://github.com/SweetCodingInc/HubEditor/blob/master/CONTRIBUTING.md#troubleshooting) section in your [CONTRIBUTING](https://github.com/SweetCodingInc/HubEditor/blob/master/CONTRIBUTING.md) guidelines.
 
 ## License
