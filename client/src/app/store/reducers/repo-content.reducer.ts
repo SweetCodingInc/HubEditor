@@ -8,11 +8,11 @@ export function LoadRepoContentReducer(
 ): IRepoContentState {
     switch (action.type) {
         case LOAD_REPO_CONTENT_ACTIONS.LOAD_REPO_CONTENT_START:
-            return { ...state, active: true, user: action.payload.user, repo: action.payload.repo, content: [], error: undefined };
+            return { ...state, active: true, user: action.payload.user, repo: action.payload.repo, content: undefined, error: undefined };
         case LOAD_REPO_CONTENT_ACTIONS.LOAD_REPO_CONTENT_SUCCESS:
             return { ...state, active: false, content: action.payload.content, error: undefined };
         case LOAD_REPO_CONTENT_ACTIONS.LOAD_REPO_CONTENT_FAILURE:
-            return { ...state, active: false, content: [], error: action.payload.error };
+            return { ...state, active: false, content: undefined, error: action.payload.error };
         default:
             return { ...state };
     }

@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { MonacoEditorModule } from 'ngx-monaco';
+import { TreeModule } from 'angular-tree-component';
 
 import { reducers } from './store';
 import { Effects } from './store/effects';
@@ -37,7 +38,8 @@ import { CodeEditorComponent } from './components/code-editor/code-editor.compon
     RouterModule.forRoot(AppRoutes),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(Effects),
-    MonacoEditorModule.forRoot()
+    MonacoEditorModule.forRoot(),
+    TreeModule
   ],
   providers: [RepoService],
   bootstrap: [AppComponent]

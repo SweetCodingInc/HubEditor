@@ -1,7 +1,7 @@
 import * as path from 'path';
 
 export function buildTree(files: Array<any>) {
-    files = files.reduce(function (tree, f) {
+    files = files.reduce(function (tree, f, index) {
         const dir = path.dirname(f.path);
         const fileName = path.basename(f.path);
 
@@ -18,6 +18,8 @@ export function buildTree(files: Array<any>) {
         }
 
         f.name = fileName;
+        f.text = fileName;
+        f.id = index;
 
         return (tree[f.path] = f), tree;
     }, {});

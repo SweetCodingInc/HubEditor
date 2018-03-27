@@ -1,4 +1,4 @@
-import { Server, ServerOptions, createServer } from 'restify';
+import { Server, ServerOptions, createServer, plugins } from 'restify';
 import * as corsMiddleware from 'restify-cors-middleware';
 import { repoRoutes } from './routes/repo-routes';
 
@@ -23,9 +23,12 @@ class HubEditor {
             allowHeaders: ['*'],
             exposeHeaders: ['*']
         };
+
         const cors = corsMiddleware(corsOptions);
         this._instance.use(cors.preflight);
         this._instance.use(cors.actual);
+        this._instance.use(plugins.queryParser());
+        this._instance.use(plugins.bodyParser());
         repoRoutes.applyRoutes(this._instance);
         return this;
     }

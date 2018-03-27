@@ -5,6 +5,8 @@ import { IFileContentState } from '../../store/models/file-contents.model';
 import { Observable } from 'rxjs/Observable';
 import { IAppState } from '../../store';
 
+import { TreeviewItem, TreeviewConfig, TreeItem } from 'ngx-treeview';
+
 import {
   selectRepoContentStateActiveFlag,
   selectRepoContentStateContent,
@@ -37,6 +39,11 @@ export class FileExplorerComponent implements OnInit {
   repoContentState: IRepoContentState;
   fileContentState: IFileContentState;
 
+  options = {};
+
+  items: Array<any>;
+  nodes: Array<ITreeNode> = [];
+
   constructor(
     private store: Store<IAppState>
   ) {
@@ -46,6 +53,10 @@ export class FileExplorerComponent implements OnInit {
     store.subscribe((state: IAppState) => {
       this.repoContentState = state.repoContentState;
       this.fileContentState = state.fileContent;
+      if (state.repoContentState.content) {
+        this.nodes = state.repoContentState.content.tree;
+      }
+      console.log(this.nodes);
     });
   }
 
@@ -65,8 +76,13 @@ export class FileExplorerComponent implements OnInit {
     fileContent.user = this.user;
     fileContent.repo = this.repo;
     fileContent.filepath = node.path;
-
+    console.log(fileContent);
     this.store.dispatch(new LoadFileContentStartAction(fileContent));
+  }
+
+  onSelect({ node }) {
+    const dataModel = <ITreeNode>node.data;
+    this.loadFile(dataModel);
   }
 
 }

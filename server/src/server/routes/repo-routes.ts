@@ -23,6 +23,7 @@ function retriveRepoContent(user: string, repo: string, path: string): AxiosProm
 }
 
 function retrieveFileContent(user: string, repo: string, path: string): AxiosPromise<IFileContent> {
+    console.log(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
     return axios.get<IFileContent>(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
 }
 
@@ -54,8 +55,9 @@ router.get('/repos/files/:user/:repo', (req: Request, res: Response, next: Next)
 
 });
 
-router.get('/repos/files/content/:user/:repo/:path', (req: Request, res: Response, next: Next) => {
-    const { user, repo, path } = req.params;
+router.get('/repos/files/content/:user/:repo', (req: Request, res: Response, next: Next) => {
+    const { user, repo } = req.params;
+    const { path } = req.query;
     retrieveFileContent(user, repo, path)
         .then((response: AxiosResponse) => {
             const fileContent = <IFileContent>response.data;

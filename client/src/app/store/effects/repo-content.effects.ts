@@ -17,6 +17,8 @@ import {
     LoadRepoContentFailureAction
 } from '../actions/repo-files.actions';
 
+import { IRepoContent, IRepoContentState } from '../models/repo-files.model';
+
 @Injectable()
 export class LoadRepoContentEffects {
     constructor(
@@ -29,7 +31,10 @@ export class LoadRepoContentEffects {
         .ofType(LOAD_REPO_CONTENT_ACTIONS.LOAD_REPO_CONTENT_START)
         .switchMap((action: LoadRepoContentStartAction) =>
             this.repoService.loadRepoContents(action.payload.user, action.payload.repo)
-                .map(response => new LoadRepoContentSuccessAction({ ...action.payload, content: response }))
+                .map((response: IRepoContent) => {
+                    const x = <IRepoContentState>{ ...action.payload, content: response };
+                    return new LoadRepoContentSuccessAction(x);
+                })
                 .catch(error => Observable.of(new LoadRepoContentFailureAction({ ...action.payload, error })))
         );
 }
