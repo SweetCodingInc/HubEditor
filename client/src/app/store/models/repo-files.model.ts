@@ -1,5 +1,3 @@
-import { unescapeIdentifier } from "@angular/compiler";
-
 export interface ITreeNode {
     path: string;
     mode: string;

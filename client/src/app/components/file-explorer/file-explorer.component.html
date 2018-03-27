@@ -1,6 +1,15 @@
-<div *ngIf="(repoState$ | async)['active']"> Loading ...</div>
-<div *ngIf="(!repoState$ | async)['active']">
-  <ul>
-    <li *ngFor="let node of (repoState$.tree | async)">{{node.name}}</li>
-  </ul>
+<div *ngIf="(repoContentStateActive$ | async) as active; else loading">
+
+  <div *ngIf="(repoContentStateContent$ | async) as content">
+    <ul>
+      <li *ngFor="let cntnt of content.tree ">
+        <span *ngIf="cntnt.type==='tree' ">{{cntnt.name}}</span>
+        <span class="clickable " *ngIf="cntnt.type !=='tree' " (click)="loadFile(cntnt)"> {{cntnt.name}}</span>
+      </li>
+    </ul>
+  </div>
 </div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>

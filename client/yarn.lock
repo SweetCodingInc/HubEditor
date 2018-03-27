@@ -4303,6 +4303,10 @@ next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
 
+ngx-monaco@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/ngx-monaco/-/ngx-monaco-0.6.1.tgz#dd4e4c6aec5766488d34068e7bc0b0b924f5d53d"
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"

@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+import { MonacoEditorModule } from 'ngx-monaco';
+
 import { reducers } from './store';
 import { Effects } from './store/effects';
 
@@ -34,7 +36,8 @@ import { CodeEditorComponent } from './components/code-editor/code-editor.compon
     FormsModule,
     RouterModule.forRoot(AppRoutes),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(Effects)
+    EffectsModule.forRoot(Effects),
+    MonacoEditorModule.forRoot()
   ],
   providers: [RepoService],
   bootstrap: [AppComponent]

@@ -30,16 +30,6 @@ export const getReposState = createSelector(
     (repos: IRepoState) => repos
 );
 
-export const getRepoContent = createSelector(
-    repoContentReducer.selectRepoContent,
-    (repoContent: IRepoContentState) => repoContent.content
-);
-
-export const getRepoContentState = createSelector(
-    repoContentReducer.selectRepoContentState,
-    (repoContent: IRepoContentState) => repoContent
-);
-
 export const getFileContentState = createSelector(
     fileContentReducer.getFileContentState,
     (fileContent: IFileContentState) => fileContent

@@ -1,5 +1,6 @@
+import { createSelector } from '@ngrx/store';
 import { LOAD_FILE_CONTENT_ACTION_TYPES, LOAD_FILE_CONTENT_ACTIONS } from '../actions/file-content.actions';
-import { INITIAL_FILE_CONTENT_STATE, IFileContentState } from '../models/file-contents.model';
+import { INITIAL_FILE_CONTENT_STATE, IFileContentState, IFileContent } from '../models/file-contents.model';
 
 export function LoadFileContentReducer(
     state: IFileContentState = INITIAL_FILE_CONTENT_STATE,
@@ -18,3 +19,29 @@ export function LoadFileContentReducer(
 }
 
 export const getFileContentState = state => state.fileContent;
+export const getFileContentStateActive = state => state.fileContent.active;
+export const getFileContentStateContent = state => state.fileContent.file;
+export const getFileContentStateError = state => state.fileContent.error;
+
+export const selectFileContentState = createSelector(
+    getFileContentState,
+    (state: IFileContentState) => state
+);
+
+export const selectFileContentStateActive = createSelector(
+    getFileContentStateActive,
+    (state: boolean) => !state
+);
+
+export const selectFileContentStateContent = createSelector(
+    getFileContentStateContent,
+    (state: IFileContent) => {
+        console.log(state);
+        return state;
+    }
+);
+
+export const selectFileContentStateError = createSelector(
+    getFileContentStateError,
+    (state: any) => state
+);

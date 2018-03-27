@@ -1,5 +1,6 @@
+import { createSelector } from '@ngrx/store';
 import { LOAD_REPO_CONTENT_ACTIONS, LOAD_REPO_CONTENT_ACTION_TYPES } from '../actions/repo-files.actions';
-import { INITIAL_REPO_CONTENT_STATE, IRepoContentState } from '../models/repo-files.model';
+import { INITIAL_REPO_CONTENT_STATE, IRepoContentState, ITreeNode } from '../models/repo-files.model';
 
 export function LoadRepoContentReducer(
     state: IRepoContentState = INITIAL_REPO_CONTENT_STATE,
@@ -17,5 +18,30 @@ export function LoadRepoContentReducer(
     }
 }
 
-export const selectRepoContent = state => state.repoContentState.content;
-export const selectRepoContentState = state => state.repoContentState;
+export const getRepoContent = state => state.repoContentState.content;
+export const getRepoContentState = state => state.repoContentState;
+export const getActive = state => state.repoContentState.active;
+export const getError = state => state.repoContentState.error;
+
+export const selectRepoContentStateActiveFlag = createSelector(
+    getActive,
+    (state: boolean) => !state
+);
+
+export const selectRepoContentStateError = createSelector(
+    getError,
+    (state: IRepoContentState) => state
+);
+
+export const selectRepoContentStateContent = createSelector(
+    getRepoContent,
+    (repoContent: Array<ITreeNode>) => {
+        console.log(repoContent);
+        return repoContent;
+    }
+);
+
+export const selectRepoContentState = createSelector(
+    getRepoContentState,
+    (repoContent: IRepoContentState) => repoContent
+);

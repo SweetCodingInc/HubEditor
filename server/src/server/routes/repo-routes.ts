@@ -34,7 +34,7 @@ router.get('/repos/:user', (req: Request, res: Response, next: Next) => {
         })
         .catch((error: AxiosError) => {
             const { data, status } = error.response!;
-            res.status(status)
+            res.status(status);
             res.send(data);
         });
 });
@@ -44,12 +44,10 @@ router.get('/repos/files/:user/:repo', (req: Request, res: Response, next: Next)
     retrieveLatestCommit(user, repo)
         .then((response1: AxiosResponse) => {
             const latestCommit = <ICommit>response1.data;
-            console.log(latestCommit.sha);
             retrieveFileTree(user, repo, latestCommit.sha)
                 .then((response: AxiosResponse) => {
                     const fileTree = response.data;
                     const resp = <Array<ITreeNode>>buildTree(fileTree.tree);
-                    console.log({ ...fileTree, tree: resp });
                     res.json({ ...fileTree, tree: resp });
                 });
         });
