@@ -2,22 +2,25 @@
 
 @import '~angular-tree-component/dist/angular-tree-component.css';
 
-html, body{
-    height:100%;
-    width:100%;
-    flex:1;
-    display:flex;
-}
+@import 'styl/variables'
+@import 'styl/functions'
+@import 'styl/generic'
+@import 'styl/helpers'
+@import 'styl/normalize'
 
-.f{
-    display:flex;
-    flex:1;
-}
+html,
+body
+  height 100%
+  width 100%
+  flex 1
+  display flex
 
-.c{
-    flex-direction:column;
-}
+.f
+  display flex
+  flex 1
 
-.r{
-    flex-direction:row;
-}
+.c
+  flex-direction column
+
+.r
+  flex-direction row
