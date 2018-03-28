@@ -1,5 +1,17 @@
-<app-file-explorer [user]="user" [repo]="repo"></app-file-explorer>
-<app-code-editor></app-code-editor>
+<div class="container1">
+  <div class="container2">
+    <div class="item logo">logo</div>
+    <div class="item search">search</div>
+    <div class="repo">
+    	<app-file-explorer [user]="user" [repo]="repo"></app-file-explorer>
+    </div>
+  </div>
+  <div class="item load">header</div>
+  <div class="item files">files</div>
+  <div class="item code"><app-code-editor></app-code-editor></div>
+  <div class="item footer2">footer2</div>
+</div>
+
 
 <!-- <div *ngIf=" !repoContentState.active ">
   <ul>

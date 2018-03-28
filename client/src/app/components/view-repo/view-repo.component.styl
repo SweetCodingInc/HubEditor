@@ -1,3 +1,59 @@
-.sidebar{
-    width:300px;
-}
+body
+ margin 0
+ background-color:#262626
+
+.container1
+ height 100vh
+ width 100vw
+ display grid
+ grid-template-columns 10% 1fr
+ grid-template-rows 10% 5% 80% 5%
+
+.container2
+ display grid
+ grid-template-columns 100%
+ grid-template-rows 10% 10% 80%
+ grid-column 1
+ grid-row 1 / 5
+
+.logo
+ grid-row 1
+ grid-column 1
+
+.search
+ grid-row 2
+ grid-column 1
+
+.repo
+ grid-row 3
+ grid-column 1
+ overflow-y: auto;
+ overflow-x: hidden;
+ flex: 1; 
+
+.load
+ grid-column 2/ span 2
+ grid-row 1
+
+.code
+ grid-column 2
+ grid-row 3
+ overflow-y: auto;
+ overflow-x: auto;
+
+.footer2
+ grid-column 2
+ grid-row 4
+
+.files
+ grid-column 2
+ grid-row 2
+
+.item
+ display flex
+ justify-content center
+ align-items center
+ color:white
+ border: 1px solid #dadada;
+ box-shadow: 0 0 10px #9ecaed
+

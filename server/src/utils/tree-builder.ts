@@ -33,4 +33,6 @@ export function buildTree(files: Array<any>) {
             return tree;
         }, [])
         .sort((a: any, b: any) => +(b.type > a.type));
+
+        console.log(tree)
 }
