@@ -1,9 +1,9 @@
-import * as path from 'path';
+import { dirname, basename } from 'path';
 
 export function buildTree(files: Array<any>) {
     files = files.reduce(function (tree, f, index) {
-        const dir = path.dirname(f.path);
-        const fileName = path.basename(f.path);
+        const dir = dirname(f.path);
+        const fileName = basename(f.path);
 
         if (tree[dir]) {
             tree[dir].children.push(f);
@@ -34,5 +34,4 @@ export function buildTree(files: Array<any>) {
         }, [])
         .sort((a: any, b: any) => +(b.type > a.type));
 
-        console.log(tree)
 }
