@@ -1,27 +1,36 @@
-<div>
-  <div class="container-fluid">
+  <div class="container-fluid flex justify border">
     <div class="row">
-      <div class="col d-flex text-center">
+      <div class="col d-flex">
         <div class="form-inline">
           <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form-control" placeholder="Github Username" [(ngModel)]="user">
+            <input type="text" class="form-control gUsername" placeholder="Github Username" [(ngModel)]="user">
           </div>
-          <button type="submit" class="btn btn-primary mb-2" (click)="loadRepos()" [disabled]="user.length === 0">Load</button>
-        </div>
+            <button type="submit" class="btn btn-primary" (click)="loadRepos()" [disabled]="user.length === 0">Load</button>        
+       </div>
       </div>
     </div>
   </div>
-</div>
-<div class="f c">
-  <ul *ngIf="repos.repos.length && !repos.error">
-    <li *ngFor="let repo of repos.repos">
-      <a [routerLink]="['/view-repo', user, repo.name]">
-        {{repo.name}}
-      </a>
-    </li>
-  </ul>
-  <div *ngIf="repos.error">
-    {{repos.error.message}}
+
+<div class="repoContainer justify flex container-fluid">
+  <div class="innerRepoContainer">
+    <div *ngIf="repos.repos.length && !repos.error">
+      <div class="outerRepoWrapp" *ngFor="let repo of repos.repos">
+        <div class="innerRepoWrapp border">
+          <a [routerLink]="['/view-repo', user, repo.name]">
+            {{repo.name}}
+          </a><br>
+          <span [routerLink]="['/view-repo', user, repo.description]">
+            {{repo.description === null ? "No description yet . . . " : repo.description}}
+          </span><br>
+          <span class="language" [routerLink]="['/view-repo', user, repo.language]">
+            {{repo.description === null ? "" : repo.language}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="repos.error">
+      {{repos.error.message}}
+    </div>
+    <div *ngIf="repos.active">Loading ... </div>
   </div>
-  <div *ngIf="repos.active">Loading ...</div>
 </div>

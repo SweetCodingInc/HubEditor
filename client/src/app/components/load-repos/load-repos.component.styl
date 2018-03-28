@@ -1,0 +1,70 @@
+ @import url('https://fonts.googleapis.com/css?family=Francois+One')
+ /* 
+@media only screen  and (min-width : 1224px)
+@media only screen  and (min-width : 1824px)
+*/
+.justify
+ display:flex
+ justify-content: center
+ align-items: center
+
+.container-fluid
+ margin: 0
+ padding: 0
+
+::-webkit-input-placeholder 
+ text-align: center
+
+::-moz-placeholder  /* Firefox 19+ */ 
+ text-align: center
+
+::-ms-input-placeholder  
+ text-align: center
+
+.gUsername
+  display: flex
+  margin-top: 5px
+  for i in 1..5
+    @media (min-width: 2**(i+5)px)
+      width: 3vw*i
+
+.repoContainer
+ height: 100vh
+ width: 100vw
+
+.innerRepoContainer
+ height: 100%
+ width: 80vw
+ margin-top:2%
+ 
+
+.outerRepoWrapp
+ display: inline-flex
+ padding:1%;
+ text-align: center 
+ font-family: 'Francois One', sans-serif
+ for i in 1..5
+  @media (min-width: 2**(i+5)px)
+   width: 6%*i
+   
+
+.innerRepoWrapp
+ height: 100px
+ width: 100%
+ text-decoration: none
+ color:#d9d9d9
+ background-color: #fafbfc
+ > a   
+   color:#415a74
+   font-size:15px
+   transition:0.3s
+   &:hover
+    color:#737373
+    text-decoration: none
+ > span
+   color: #3d3b43
+   font-size: 12px
+
+.language
+ font-size:14px;
+ 
